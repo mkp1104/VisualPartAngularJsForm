@@ -1,0 +1,43 @@
+﻿@model RegFormAN.Models.MANDATORYSKIL
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>MANDATORYSKIL</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SKILL)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SKILL)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Rating1.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Rating1.Description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Rating.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Rating.Description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.INTERVIEWER.INAME)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.INTERVIEWER.INAME)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.MID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

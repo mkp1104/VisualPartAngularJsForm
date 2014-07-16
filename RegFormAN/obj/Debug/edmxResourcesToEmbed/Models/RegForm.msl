@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RegFormAngularNodeModelStoreContainer" CdmEntityContainer="RegFormAngularNodeEntities">
+    <EntitySetMapping Name="CANDIDATE_DETAILS">
+      <EntityTypeMapping TypeName="RegFormAngularNodeModel.CANDIDATE_DETAILS">
+        <MappingFragment StoreEntitySet="CANDIDATE_DETAILS">
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="CANDIDATE_NAME" ColumnName="CANDIDATE_NAME" />
+          <ScalarProperty Name="PROJECT" ColumnName="PROJECT" />
+          <ScalarProperty Name="PRACTICE_AREA" ColumnName="PRACTICE_AREA" />
+          <ScalarProperty Name="Requester" ColumnName="Requester" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="MID" ColumnName="MID" />
+          <ScalarProperty Name="OID" ColumnName="OID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INTERVIEWERs">
+      <EntityTypeMapping TypeName="RegFormAngularNodeModel.INTERVIEWER">
+        <MappingFragment StoreEntitySet="INTERVIEWER">
+          <ScalarProperty Name="IID" ColumnName="IID" />
+          <ScalarProperty Name="INAME" ColumnName="INAME" />
+          <ScalarProperty Name="SIGN" ColumnName="SIGN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MANDATORYSKILS">
+      <EntityTypeMapping TypeName="RegFormAngularNodeModel.MANDATORYSKIL">
+        <MappingFragment StoreEntitySet="MANDATORYSKILS">
+          <ScalarProperty Name="MID" ColumnName="MID" />
+          <ScalarProperty Name="SKILL" ColumnName="SKILL" />
+          <ScalarProperty Name="JRSS" ColumnName="JRSS" />
+          <ScalarProperty Name="INTERVIEWERRATING" ColumnName="INTERVIEWERRATING" />
+          <ScalarProperty Name="IID" ColumnName="IID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OPTIONALSKILS">
+      <EntityTypeMapping TypeName="RegFormAngularNodeModel.OPTIONALSKIL">
+        <MappingFragment StoreEntitySet="OPTIONALSKILS">
+          <ScalarProperty Name="OID" ColumnName="OID" />
+          <ScalarProperty Name="SKILL" ColumnName="SKILL" />
+          <ScalarProperty Name="JRSS" ColumnName="JRSS" />
+          <ScalarProperty Name="INTERVIEWERRATING" ColumnName="INTERVIEWERRATING" />
+          <ScalarProperty Name="IID" ColumnName="IID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ratings">
+      <EntityTypeMapping TypeName="RegFormAngularNodeModel.Rating">
+        <MappingFragment StoreEntitySet="Rating">
+          <ScalarProperty Name="RID" ColumnName="RID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,61 @@
+﻿@model RegFormAN.Models.OPTIONALSKIL
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>OPTIONALSKIL</legend>
+
+        @Html.HiddenFor(model => model.OID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SKILL)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SKILL)
+            @Html.ValidationMessageFor(model => model.SKILL)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.JRSS, "Rating1")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("JRSS", String.Empty)
+            @Html.ValidationMessageFor(model => model.JRSS)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.INTERVIEWERRATING, "Rating")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("INTERVIEWERRATING", String.Empty)
+            @Html.ValidationMessageFor(model => model.INTERVIEWERRATING)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IID, "INTERVIEWER")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("IID", String.Empty)
+            @Html.ValidationMessageFor(model => model.IID)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

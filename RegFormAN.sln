@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegFormAN", "RegFormAN\RegFormAN.csproj", "{D6A4A2C9-2300-47B4-A316-C524C05C1390}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegFormAN.Tests", "RegFormAN.Tests\RegFormAN.Tests.csproj", "{79C92AEF-F9DA-4274-93EF-23F729A2B920}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D6A4A2C9-2300-47B4-A316-C524C05C1390}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6A4A2C9-2300-47B4-A316-C524C05C1390}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6A4A2C9-2300-47B4-A316-C524C05C1390}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6A4A2C9-2300-47B4-A316-C524C05C1390}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79C92AEF-F9DA-4274-93EF-23F729A2B920}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79C92AEF-F9DA-4274-93EF-23F729A2B920}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79C92AEF-F9DA-4274-93EF-23F729A2B920}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79C92AEF-F9DA-4274-93EF-23F729A2B920}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

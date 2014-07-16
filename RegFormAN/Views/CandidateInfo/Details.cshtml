@@ -1,0 +1,64 @@
+﻿@model RegFormAN.Models.CANDIDATE_DETAILS
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>CANDIDATE_DETAILS</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CANDIDATE_NAME)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CANDIDATE_NAME)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PROJECT)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PROJECT)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PRACTICE_AREA)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PRACTICE_AREA)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Requester)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Requester)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Date)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Date)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MANDATORYSKIL.SKILL)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MANDATORYSKIL.SKILL)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.OPTIONALSKIL.SKILL)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OPTIONALSKIL.SKILL)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.CID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

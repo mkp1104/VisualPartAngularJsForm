@@ -1,0 +1,29 @@
+﻿@model RegFormAN.Models.INTERVIEWER
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>INTERVIEWER</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.INAME)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.INAME)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SIGN)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SIGN)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.IID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

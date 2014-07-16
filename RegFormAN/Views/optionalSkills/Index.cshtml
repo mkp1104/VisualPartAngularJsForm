@@ -1,0 +1,51 @@
+﻿@model IEnumerable<RegFormAN.Models.OPTIONALSKIL>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SKILL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rating1.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rating.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.INTERVIEWER.INAME)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SKILL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rating1.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rating.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.INTERVIEWER.INAME)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OID })
+        </td>
+    </tr>
+}
+
+</table>

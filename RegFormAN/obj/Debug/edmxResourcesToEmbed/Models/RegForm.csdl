@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RegFormAngularNodeModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="RegFormAngularNodeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CANDIDATE_DETAILS" EntityType="RegFormAngularNodeModel.CANDIDATE_DETAILS" />
+    <EntitySet Name="INTERVIEWERs" EntityType="RegFormAngularNodeModel.INTERVIEWER" />
+    <EntitySet Name="MANDATORYSKILS" EntityType="RegFormAngularNodeModel.MANDATORYSKIL" />
+    <EntitySet Name="OPTIONALSKILS" EntityType="RegFormAngularNodeModel.OPTIONALSKIL" />
+    <EntitySet Name="Ratings" EntityType="RegFormAngularNodeModel.Rating" />
+    <AssociationSet Name="FK__CANDIDATE_D__MID__267ABA7A" Association="RegFormAngularNodeModel.FK__CANDIDATE_D__MID__267ABA7A">
+      <End Role="MANDATORYSKILS" EntitySet="MANDATORYSKILS" />
+      <End Role="CANDIDATE_DETAILS" EntitySet="CANDIDATE_DETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CANDIDATE_D__OID__276EDEB3" Association="RegFormAngularNodeModel.FK__CANDIDATE_D__OID__276EDEB3">
+      <End Role="OPTIONALSKILS" EntitySet="OPTIONALSKILS" />
+      <End Role="CANDIDATE_DETAILS" EntitySet="CANDIDATE_DETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MANDATORYSK__IID__1DE57479" Association="RegFormAngularNodeModel.FK__MANDATORYSK__IID__1DE57479">
+      <End Role="INTERVIEWER" EntitySet="INTERVIEWERs" />
+      <End Role="MANDATORYSKILS" EntitySet="MANDATORYSKILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OPTIONALSKI__IID__24927208" Association="RegFormAngularNodeModel.FK__OPTIONALSKI__IID__24927208">
+      <End Role="INTERVIEWER" EntitySet="INTERVIEWERs" />
+      <End Role="OPTIONALSKILS" EntitySet="OPTIONALSKILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MANDATORY__INTER__1CF15040" Association="RegFormAngularNodeModel.FK__MANDATORY__INTER__1CF15040">
+      <End Role="Rating" EntitySet="Ratings" />
+      <End Role="MANDATORYSKILS" EntitySet="MANDATORYSKILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MANDATORYS__JRSS__1BFD2C07" Association="RegFormAngularNodeModel.FK__MANDATORYS__JRSS__1BFD2C07">
+      <End Role="Rating" EntitySet="Ratings" />
+      <End Role="MANDATORYSKILS" EntitySet="MANDATORYSKILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OPTIONALS__INTER__239E4DCF" Association="RegFormAngularNodeModel.FK__OPTIONALS__INTER__239E4DCF">
+      <End Role="Rating" EntitySet="Ratings" />
+      <End Role="OPTIONALSKILS" EntitySet="OPTIONALSKILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OPTIONALSK__JRSS__22AA2996" Association="RegFormAngularNodeModel.FK__OPTIONALSK__JRSS__22AA2996">
+      <End Role="Rating" EntitySet="Ratings" />
+      <End Role="OPTIONALSKILS" EntitySet="OPTIONALSKILS" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CANDIDATE_DETAILS">
+    <Key>
+      <PropertyRef Name="CID" />
+    </Key>
+    <Property Name="CID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CANDIDATE_NAME" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="PROJECT" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="PRACTICE_AREA" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Requester" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Date" Type="DateTime" />
+    <Property Name="MID" Type="Int32" />
+    <Property Name="OID" Type="Int32" />
+    <NavigationProperty Name="MANDATORYSKIL" Relationship="RegFormAngularNodeModel.FK__CANDIDATE_D__MID__267ABA7A" FromRole="CANDIDATE_DETAILS" ToRole="MANDATORYSKILS" />
+    <NavigationProperty Name="OPTIONALSKIL" Relationship="RegFormAngularNodeModel.FK__CANDIDATE_D__OID__276EDEB3" FromRole="CANDIDATE_DETAILS" ToRole="OPTIONALSKILS" />
+  </EntityType>
+  <EntityType Name="INTERVIEWER">
+    <Key>
+      <PropertyRef Name="IID" />
+    </Key>
+    <Property Name="IID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="INAME" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="SIGN" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="MANDATORYSKILS" Relationship="RegFormAngularNodeModel.FK__MANDATORYSK__IID__1DE57479" FromRole="INTERVIEWER" ToRole="MANDATORYSKILS" />
+    <NavigationProperty Name="OPTIONALSKILS" Relationship="RegFormAngularNodeModel.FK__OPTIONALSKI__IID__24927208" FromRole="INTERVIEWER" ToRole="OPTIONALSKILS" />
+  </EntityType>
+  <EntityType Name="MANDATORYSKIL">
+    <Key>
+      <PropertyRef Name="MID" />
+    </Key>
+    <Property Name="MID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SKILL" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="JRSS" Type="Int32" />
+    <Property Name="INTERVIEWERRATING" Type="Int32" />
+    <Property Name="IID" Type="Int32" />
+    <NavigationProperty Name="CANDIDATE_DETAILS" Relationship="RegFormAngularNodeModel.FK__CANDIDATE_D__MID__267ABA7A" FromRole="MANDATORYSKILS" ToRole="CANDIDATE_DETAILS" />
+    <NavigationProperty Name="INTERVIEWER" Relationship="RegFormAngularNodeModel.FK__MANDATORYSK__IID__1DE57479" FromRole="MANDATORYSKILS" ToRole="INTERVIEWER" />
+    <NavigationProperty Name="Rating" Relationship="RegFormAngularNodeModel.FK__MANDATORY__INTER__1CF15040" FromRole="MANDATORYSKILS" ToRole="Rating" />
+    <NavigationProperty Name="Rating1" Relationship="RegFormAngularNodeModel.FK__MANDATORYS__JRSS__1BFD2C07" FromRole="MANDATORYSKILS" ToRole="Rating" />
+  </EntityType>
+  <EntityType Name="OPTIONALSKIL">
+    <Key>
+      <PropertyRef Name="OID" />
+    </Key>
+    <Property Name="OID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SKILL" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="JRSS" Type="Int32" />
+    <Property Name="INTERVIEWERRATING" Type="Int32" />
+    <Property Name="IID" Type="Int32" />
+    <NavigationProperty Name="CANDIDATE_DETAILS" Relationship="RegFormAngularNodeModel.FK__CANDIDATE_D__OID__276EDEB3" FromRole="OPTIONALSKILS" ToRole="CANDIDATE_DETAILS" />
+    <NavigationProperty Name="INTERVIEWER" Relationship="RegFormAngularNodeModel.FK__OPTIONALSKI__IID__24927208" FromRole="OPTIONALSKILS" ToRole="INTERVIEWER" />
+    <NavigationProperty Name="Rating" Relationship="RegFormAngularNodeModel.FK__OPTIONALS__INTER__239E4DCF" FromRole="OPTIONALSKILS" ToRole="Rating" />
+    <NavigationProperty Name="Rating1" Relationship="RegFormAngularNodeModel.FK__OPTIONALSK__JRSS__22AA2996" FromRole="OPTIONALSKILS" ToRole="Rating" />
+  </EntityType>
+  <EntityType Name="Rating">
+    <Key>
+      <PropertyRef Name="RID" />
+    </Key>
+    <Property Name="RID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="MANDATORYSKILS" Relationship="RegFormAngularNodeModel.FK__MANDATORY__INTER__1CF15040" FromRole="Rating" ToRole="MANDATORYSKILS" />
+    <NavigationProperty Name="MANDATORYSKILS1" Relationship="RegFormAngularNodeModel.FK__MANDATORYS__JRSS__1BFD2C07" FromRole="Rating" ToRole="MANDATORYSKILS" />
+    <NavigationProperty Name="OPTIONALSKILS" Relationship="RegFormAngularNodeModel.FK__OPTIONALS__INTER__239E4DCF" FromRole="Rating" ToRole="OPTIONALSKILS" />
+    <NavigationProperty Name="OPTIONALSKILS1" Relationship="RegFormAngularNodeModel.FK__OPTIONALSK__JRSS__22AA2996" FromRole="Rating" ToRole="OPTIONALSKILS" />
+  </EntityType>
+  <Association Name="FK__CANDIDATE_D__MID__267ABA7A">
+    <End Role="MANDATORYSKILS" Type="RegFormAngularNodeModel.MANDATORYSKIL" Multiplicity="0..1" />
+    <End Role="CANDIDATE_DETAILS" Type="RegFormAngularNodeModel.CANDIDATE_DETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MANDATORYSKILS">
+        <PropertyRef Name="MID" />
+      </Principal>
+      <Dependent Role="CANDIDATE_DETAILS">
+        <PropertyRef Name="MID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CANDIDATE_D__OID__276EDEB3">
+    <End Role="OPTIONALSKILS" Type="RegFormAngularNodeModel.OPTIONALSKIL" Multiplicity="0..1" />
+    <End Role="CANDIDATE_DETAILS" Type="RegFormAngularNodeModel.CANDIDATE_DETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OPTIONALSKILS">
+        <PropertyRef Name="OID" />
+      </Principal>
+      <Dependent Role="CANDIDATE_DETAILS">
+        <PropertyRef Name="OID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MANDATORYSK__IID__1DE57479">
+    <End Role="INTERVIEWER" Type="RegFormAngularNodeModel.INTERVIEWER" Multiplicity="0..1" />
+    <End Role="MANDATORYSKILS" Type="RegFormAngularNodeModel.MANDATORYSKIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INTERVIEWER">
+        <PropertyRef Name="IID" />
+      </Principal>
+      <Dependent Role="MANDATORYSKILS">
+        <PropertyRef Name="IID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OPTIONALSKI__IID__24927208">
+    <End Role="INTERVIEWER" Type="RegFormAngularNodeModel.INTERVIEWER" Multiplicity="0..1" />
+    <End Role="OPTIONALSKILS" Type="RegFormAngularNodeModel.OPTIONALSKIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INTERVIEWER">
+        <PropertyRef Name="IID" />
+      </Principal>
+      <Dependent Role="OPTIONALSKILS">
+        <PropertyRef Name="IID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MANDATORY__INTER__1CF15040">
+    <End Role="Rating" Type="RegFormAngularNodeModel.Rating" Multiplicity="0..1" />
+    <End Role="MANDATORYSKILS" Type="RegFormAngularNodeModel.MANDATORYSKIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rating">
+        <PropertyRef Name="RID" />
+      </Principal>
+      <Dependent Role="MANDATORYSKILS">
+        <PropertyRef Name="INTERVIEWERRATING" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MANDATORYS__JRSS__1BFD2C07">
+    <End Role="Rating" Type="RegFormAngularNodeModel.Rating" Multiplicity="0..1" />
+    <End Role="MANDATORYSKILS" Type="RegFormAngularNodeModel.MANDATORYSKIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rating">
+        <PropertyRef Name="RID" />
+      </Principal>
+      <Dependent Role="MANDATORYSKILS">
+        <PropertyRef Name="JRSS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OPTIONALS__INTER__239E4DCF">
+    <End Role="Rating" Type="RegFormAngularNodeModel.Rating" Multiplicity="0..1" />
+    <End Role="OPTIONALSKILS" Type="RegFormAngularNodeModel.OPTIONALSKIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rating">
+        <PropertyRef Name="RID" />
+      </Principal>
+      <Dependent Role="OPTIONALSKILS">
+        <PropertyRef Name="INTERVIEWERRATING" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OPTIONALSK__JRSS__22AA2996">
+    <End Role="Rating" Type="RegFormAngularNodeModel.Rating" Multiplicity="0..1" />
+    <End Role="OPTIONALSKILS" Type="RegFormAngularNodeModel.OPTIONALSKIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rating">
+        <PropertyRef Name="RID" />
+      </Principal>
+      <Dependent Role="OPTIONALSKILS">
+        <PropertyRef Name="JRSS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
